@@ -1,0 +1,54 @@
+root@mihail-VirtualBox:~/HomeWork_Doker_DE# docker build -t netology-ml:netology-ml .
+
+[+] Building 2.1s (10/10) FINISHED                                                                            docker:default
+
+ => [internal] load build definition from dockerfile                                                                    0.0s
+
+ => => transferring dockerfile: 571B                                                                                    0.0s
+
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                                1.8s
+
+ => [internal] load .dockerignore                                                                                       0.0s
+
+ => => transferring context: 2B                                                                                         0.0s
+
+ => [1/5] FROM docker.io/continuumio/miniconda3:latest@sha256:0fe3d011c129245af1f631d19c6b7c4f34b61650c1c7881980f266cd  0.0s
+
+ => [internal] load build context                                                                                       0.1s
+
+ => => transferring context: 25B                                                                                        0.0s
+
+ => CACHED [2/5] WORKDIR /app                                                                                           0.0s
+
+ => CACHED [3/5] COPY 1.sh /app/1.sh                                                                                    0.0s
+
+ => CACHED [4/5] RUN chmod +x /app/1.sh                                                                                 0.0s
+
+ => CACHED [5/5] RUN conda install -y mlflow boto3 pymysql                                                              0.0s
+
+ => exporting to image                                                                                                  0.0s
+
+ => => exporting layers                                                                                                 0.0s
+
+ => => writing image sha256:57bc93e2f8d127f39c58bd6a419eb9f4968a7fde154eefe88fa3566ec0557cc1                            0.0s
+
+ => => naming to docker.io/library/netology-ml:netology-ml                                                              0.0s
+
+root@mihail-VirtualBox:~/HomeWork_Doker_DE# docker images
+
+REPOSITORY                        TAG           IMAGE ID       CREATED          SIZE
+
+netology-ml                       netology-ml   57bc93e2f8d1   21 minutes ago   2.9GB
+
+cnfldemos/kafka-connect-datagen   0.6.2-7.5.0   2f8814aefafd   10 months ago    1.63GB
+
+confluentinc/cp-kafka             7.5.0         af34583c49f0   11 months ago    849MB
+
+confluentinc/cp-zookeeper         7.5.0         04bd40128a4e   11 months ago    849MB
+
+confluentinc/cp-schema-registry   7.5.0         9bdec121f3c5   11 months ago    1.97GB
+
+root@mihail-VirtualBox:~/HomeWork_Doker_DE# docker run 57bc93e2f8d1
+
+Hello Netology!
+
